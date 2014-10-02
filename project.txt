@@ -5,7 +5,7 @@ GUI System:
   Will show all enchants with costs
   Will look like so:
   http://imgur.com/Wth3uIN
-  
+
 Cost System:
   Each weapon enchant will be level 1-10 with a different price for each level
   To make it easy every level will cost the same for every upgrade.  So just one section in the config to set the prices.
