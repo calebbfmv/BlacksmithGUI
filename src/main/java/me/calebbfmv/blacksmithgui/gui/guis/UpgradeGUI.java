@@ -11,7 +11,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 /**
  * Created by Tim [calebbfmv] on 10/1/2014.
@@ -83,34 +82,6 @@ public class UpgradeGUI extends GUI{
             }
         }
         return new UpgradeGUI("Upgrades", buttons);
-    }
-
-    private static ItemStack create(Material mat, String name){
-        ItemStack item = new ItemStack(mat);
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        item.setItemMeta(meta);
-        return item;
-    }
-
-    private static Button create(ItemStack item, String name, Button.ClickExecutor clickExecutor){
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        item.setItemMeta(meta);
-        return new Button(item, clickExecutor);
-    }
-
-    private static Button create(ItemStack item, String name){
-        return create(item, name, new Button.ClickExecutor() {
-            @Override
-            public void click(Player player) {
-
-            }
-        });
-    }
-
-    private static Button create(ItemStack item, Button.ClickExecutor ce){
-        return new Button(item, ce);
     }
 
 }

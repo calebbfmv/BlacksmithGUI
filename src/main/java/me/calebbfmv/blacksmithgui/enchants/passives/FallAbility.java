@@ -4,6 +4,7 @@ import me.calebbfmv.blacksmithgui.BlacksmithGUI;
 import me.calebbfmv.blacksmithgui.interfaces.PassiveAbility;
 import me.calebbfmv.blacksmithgui.interfaces.Upgrade;
 import me.calebbfmv.blacksmithgui.utils.EPlayer;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
@@ -22,5 +23,6 @@ public class FallAbility extends PassiveAbility {
         int level = ePlayer.getLevel(getUpgrade());
         int percentage = 10 * level;
         player.setMetadata("fall", new FixedMetadataValue(BlacksmithGUI.getInstance(), percentage));
+        player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + getName() + ChatColor.GRAY + "] " + ChatColor.RED + "is now activated.");
     }
 }

@@ -2,9 +2,11 @@ package me.calebbfmv.blacksmithgui.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -75,5 +77,33 @@ public class GUI {
         name = name.toLowerCase();
         name = ChatColor.stripColor(name);
         return guis.get(name);
+    }
+
+    protected static ItemStack create(Material mat, String name){
+        ItemStack item = new ItemStack(mat);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        item.setItemMeta(meta);
+        return item;
+    }
+
+    protected static Button create(ItemStack item, String name, Button.ClickExecutor clickExecutor){
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        item.setItemMeta(meta);
+        return new Button(item, clickExecutor);
+    }
+
+    protected static Button create(ItemStack item, String name){
+        return create(item, name, new Button.ClickExecutor() {
+            @Override
+            public void click(Player player) {
+
+            }
+        });
+    }
+
+    protected static Button create(ItemStack item, Button.ClickExecutor ce){
+        return new Button(item, ce);
     }
 }

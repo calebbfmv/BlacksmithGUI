@@ -36,7 +36,8 @@ public class CategoryGUI extends GUI {
         buttons[0] = new Button(sword, new Button.ClickExecutor() {
             @Override
             public void click(Player player) {
-
+                UpgradeGUI gui = UpgradeGUI.create();
+                gui.open(player);
             }
         });
         buttons[1] = new Button(head, new Button.ClickExecutor() {
