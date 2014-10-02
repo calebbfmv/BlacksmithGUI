@@ -1,7 +1,6 @@
 package me.calebbfmv.blacksmithgui.utils;
 
 import me.calebbfmv.blacksmithgui.interfaces.Enchant;
-import me.calebbfmv.blacksmithgui.interfaces.Upgrade;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -35,8 +34,8 @@ public class EnchantedItem {
         return this;
     }
 
-    public EnchantedItem withUpgrade(Upgrade upgrade, int level){
-        lore.set(1, ChatColor.RED + "Upgrade: " + RomanNumeral.get(level).name());
+    public EnchantedItem withUpgrade(int level){
+        lore.set(1, ChatColor.RED + "Level: " + RomanNumeral.get(level).name());
         return this;
     }
 

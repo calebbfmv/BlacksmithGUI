@@ -7,7 +7,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
  */
 public interface IEnchant {
 
-    public void action(EntityDamageByEntityEvent event);
+    public void action(EntityDamageByEntityEvent player);
 
     public int getCost();
 

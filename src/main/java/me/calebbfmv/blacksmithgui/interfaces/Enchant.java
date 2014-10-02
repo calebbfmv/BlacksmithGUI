@@ -39,15 +39,15 @@ public abstract class Enchant implements IEnchant {
     public static Enchant getFromName(String lore){
         lore = ChatColor.stripColor(lore);
         lore = lore.toLowerCase();
-        lore = lore.replace("enchants: ", "");
+        lore = lore.replace("enchant: ", "");
         return enchants.get(lore);
     }
 
-    public int getLevel(String lore){
+    public static int getLevel(String lore){
         lore = ChatColor.stripColor(lore);
         lore = lore.toLowerCase();
-        lore = lore.replace("Upgrade Level: ", "");
-        return 1;
+        lore = lore.replace("Upgrade: ", "");
+        return Integer.parseInt(lore);
     }
 
     public static HashMap<String, Enchant> getEnchants(){
