@@ -14,10 +14,8 @@ import org.bukkit.entity.Villager;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -50,46 +48,6 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         new EPlayer(event.getPlayer());
-    }
-
-    @EventHandler
-    public void onSwitch(PlayerItemHeldEvent event){
-        ItemStack item = event.getPlayer().getInventory().getItem(event.getNewSlot());
-        if(!item.hasItemMeta()){
-            return;
-        }
-        if(!item.getItemMeta().hasDisplayName()){
-            return;
-        }
-        String l = "";
-        String e = "";
-        for(String s : item.getItemMeta().getLore()){
-            if(ChatColor.stripColor(s).contains("Enchant:")){
-                e = s;
-            }
-            if(ChatColor.stripColor(s).contains("Level:")){
-                l = s;
-            }
-        }
-        Enchant enchant = Enchant.getFromName(e);
-        int level = RomanNumeral.valueOf(l).getValue();
-        EPlayer.get(event.getPlayer()).setLevel(enchant.getUpgrade(), level);
-    }
-
-    @EventHandler
-    public void onFall(EntityDamageEvent event){
-        if(!(event.getEntity() instanceof Player)){
-            return;
-        }
-        Player player = (Player) event.getEntity();
-        if(event.getCause() != EntityDamageEvent.DamageCause.FALL){
-            return;
-        }
-        if(!player.hasMetadata("fall")){
-            return;
-        }
-        int level = player.getMetadata("fall").get(0).asInt();
-        event.setDamage(event.getDamage() / level);
     }
 
     @EventHandler
@@ -135,9 +93,11 @@ public class PlayerListener implements Listener {
                 }
                 Enchant enchant = Enchant.getFromName(e);
                 if(RomanNumeral.valueOf(l) == null){
+                    UpgradeGUI gui1 = UpgradeGUI.create();
+                    gui.open(player);
                     return;
                 }
-                UpgradeGUI gui1 = UpgradeGUI.create(enchant.getUpgrade(), player);
+                UpgradeGUI gui1 = UpgradeGUI.create(enchant.getUpgrade());
                 gui1.open(player);
             }
         }

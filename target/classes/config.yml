@@ -1,0 +1,8 @@
+allowed-names:
+- 'Bilbo'
+
+guis:
+  categories:
+    itemNames:
+      playerBuffs: 'Name Here PLZ'
+      weaponEnchants: 'Again with the name'

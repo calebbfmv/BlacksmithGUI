@@ -13,17 +13,29 @@ public enum Upgrade {
 
     DAMAGE,
 
-    FIREBALL,
+    FIREBALL(true),
 
     FALL,
 
     HEALTH,
 
-    HUNGER,
+    SPEED(true),
 
-    SPEED,
+    SLOWNESS(true),
 
-    SLOWNESS,
+    STRENGTH;
 
-    STRENGTH
+    private boolean donorOnly;
+
+    private Upgrade(){
+        this.donorOnly = false;
+    }
+
+    private Upgrade(boolean donorOnly){
+        this.donorOnly = donorOnly;
+    }
+
+    public boolean isDonorOnly(){
+        return donorOnly;
+    }
 }

@@ -9,8 +9,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
  */
 public class SlownessEnchant extends Enchant {
 
-    public SlownessEnchant(int cost, String name, Upgrade upgrade) {
-        super(cost, name, upgrade);
+    public SlownessEnchant(int cost, String name) {
+        super(cost, name, Upgrade.SLOWNESS);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package me.calebbfmv.blacksmithgui.interfaces;
 
 import org.bukkit.ChatColor;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -41,6 +43,24 @@ public abstract class Enchant implements IEnchant {
         lore = lore.toLowerCase();
         lore = lore.replace("enchant: ", "");
         return enchants.get(lore);
+    }
+
+    public static Enchant getFromItem(ItemStack item){
+        ItemMeta meta = item.getItemMeta();
+        if(meta == null){
+            return null;
+        }
+        if(!meta.hasLore()){
+            return null;
+        }
+        String e = "";
+        for(String s : item.getItemMeta().getLore()){
+            if(ChatColor.stripColor(s).contains("Enchant:")){
+                e = s;
+                break;
+            }
+        }
+        return getFromName(e);
     }
 
     public static int getLevel(String lore){

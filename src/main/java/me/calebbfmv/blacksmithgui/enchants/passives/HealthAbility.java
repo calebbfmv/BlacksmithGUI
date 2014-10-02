@@ -1,25 +1,25 @@
 package me.calebbfmv.blacksmithgui.enchants.passives;
 
-import me.calebbfmv.blacksmithgui.interfaces.Enchant;
+import me.calebbfmv.blacksmithgui.interfaces.PassiveAbility;
 import me.calebbfmv.blacksmithgui.interfaces.Upgrade;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import me.calebbfmv.blacksmithgui.utils.EPlayer;
+import org.bukkit.entity.Player;
 
 /**
  * Created by Tim [calebbfmv] on 10/1/2014.
  */
-public class HealthAbility extends Enchant {
+public class HealthAbility extends PassiveAbility {
 
-    public HealthAbility(int cost, String name, Upgrade upgrade) {
-        super(cost, name, upgrade);
+    public HealthAbility(int cost) {
+        super(cost, Upgrade.HEALTH);
     }
 
     @Override
-    public void action(EntityDamageByEntityEvent event) {
-
-    }
-
-    @Override
-    public boolean doOnRight() {
-        return false;
+    public void activate(Player player) {
+        double max = player.getMaxHealth();
+        int level = EPlayer.get(player).getLevel(getUpgrade());
+        double set = max * (level / 10);
+        set += max;
+        player.setMaxHealth(set);
     }
 }

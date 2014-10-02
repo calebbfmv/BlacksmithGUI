@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -42,5 +43,21 @@ public class DamageListener implements Listener {
         }
         Enchant enchant = Enchant.getFromName(e);
         enchant.action(event);
+    }
+
+    @EventHandler
+    public void onFall(EntityDamageEvent event){
+        if(!(event.getEntity() instanceof Player)){
+            return;
+        }
+        Player player = (Player) event.getEntity();
+        if(event.getCause() != EntityDamageEvent.DamageCause.FALL){
+            return;
+        }
+        if(!player.hasMetadata("fall")){
+            return;
+        }
+        int level = player.getMetadata("fall").get(0).asInt();
+        event.setDamage(event.getDamage() / level);
     }
 }

@@ -23,5 +23,6 @@ public class SpeedAbility extends PassiveAbility {
         if(speed == newSpeed){
             return;
         }
-        player.setWalkSpeed(newSpeed);    }
+        player.setWalkSpeed(newSpeed);
+    }
 }
