@@ -1,4 +1,4 @@
-package me.calebbfmv.blacksmithgui;
+package me.calebbfmv.blacksmithgui.interfaces;
 
 import org.bukkit.ChatColor;
 
@@ -10,26 +10,20 @@ import java.util.LinkedHashMap;
  */
 public abstract class Enchant implements IEnchant {
 
-    private int tradeValue;
-    private String[] lore;
+    private int cost;
     private String name;
+    private Upgrade upgrade;
     private static LinkedHashMap<String, Enchant> enchants = new LinkedHashMap<>();
 
-    public Enchant(int tradeValue, String[] lore, String name){
-        this.lore = lore;
-        this.tradeValue = tradeValue;
+    public Enchant(int cost, String name, Upgrade upgrade){
+        this.cost = cost;
         this.name = name;
+        this.upgrade = upgrade;
         enchants.put(name.toLowerCase(), this);
     }
 
-    @Override
-    public String[] getLore() {
-        return lore;
-    }
-
-    @Override
-    public int getTradeValue() {
-        return tradeValue;
+    public Upgrade getUpgrade(){
+        return upgrade;
     }
 
     @Override
@@ -37,11 +31,23 @@ public abstract class Enchant implements IEnchant {
         return name;
     }
 
+    @Override
+    public int getCost(){
+        return cost;
+    }
+
     public static Enchant getFromName(String lore){
         lore = ChatColor.stripColor(lore);
         lore = lore.toLowerCase();
         lore = lore.replace("enchants: ", "");
         return enchants.get(lore);
+    }
+
+    public int getLevel(String lore){
+        lore = ChatColor.stripColor(lore);
+        lore = lore.toLowerCase();
+        lore = lore.replace("Upgrade Level: ", "");
+        return 1;
     }
 
     public static HashMap<String, Enchant> getEnchants(){
