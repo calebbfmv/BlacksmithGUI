@@ -16,6 +16,12 @@ public class SpeedAbility extends PassiveAbility {
 
     @Override
     public void activate(Player player) {
-        EPlayer
-    }
+        int level = EPlayer.get(player).getLevel(this.getUpgrade());
+        float speed = player.getWalkSpeed();
+        float speedToAdd = level / 10;
+        float newSpeed = 0.2F * speedToAdd;
+        if(speed == newSpeed){
+            return;
+        }
+        player.setWalkSpeed(newSpeed);    }
 }

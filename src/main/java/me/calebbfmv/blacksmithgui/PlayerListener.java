@@ -19,7 +19,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -91,25 +90,6 @@ public class PlayerListener implements Listener {
         }
         int level = player.getMetadata("fall").get(0).asInt();
         event.setDamage(event.getDamage() / level);
-    }
-
-    @EventHandler
-    public void onRun(PlayerMoveEvent event){
-        if(event.getTo().getX() == event.getFrom().getX() && event.getTo().getZ() == event.getTo().getZ()){
-            return;
-        }
-        Player player = event.getPlayer();
-        if(!player.hasMetadata("speed")){
-            return;
-        }
-        int level = player.getMetadata("speed").get(0).asInt();
-        float speed = player.getWalkSpeed();
-        float speedToAdd = level / 10;
-        float newSpeed = 0.2F * speedToAdd;
-        if(speed == newSpeed){
-            return;
-        }
-        player.setWalkSpeed(newSpeed);
     }
 
     @EventHandler
