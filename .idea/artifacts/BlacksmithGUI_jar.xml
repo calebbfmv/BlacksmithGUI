@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="BlacksmithGUI:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BlacksmithGUI_jar</output-path>
+    <output-path>$USER_HOME$/Desktop/Server/plugins</output-path>
     <root id="archive" name="BlacksmithGUI.jar">
       <element id="module-output" name="BlacksmithGUI" />
     </root>

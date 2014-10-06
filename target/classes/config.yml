@@ -1,8 +1,0 @@
-allowed-names:
-- 'Bilbo'
-
-guis:
-  categories:
-    itemNames:
-      playerBuffs: '&aPlayerBuffs'
-      weaponEnchants: '&aWeapon Enchants'
