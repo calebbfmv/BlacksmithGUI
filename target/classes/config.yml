@@ -4,5 +4,5 @@ allowed-names:
 guis:
   categories:
     itemNames:
-      playerBuffs: 'Name Here PLZ'
-      weaponEnchants: 'Again with the name'
+      playerBuffs: '&aPlayerBuffs'
+      weaponEnchants: '&aWeapon Enchants'
