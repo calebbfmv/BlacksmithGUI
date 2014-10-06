@@ -43,7 +43,8 @@ public class CategoryGUI extends GUI {
         buttons[1] = new Button(head, new Button.ClickExecutor() {
             @Override
             public void click(Player player) {
-
+                PlayerBuffsGUI gui = PlayerBuffsGUI.create();
+                gui.open(player);
             }
         });
         return new CategoryGUI("Categories", buttons);

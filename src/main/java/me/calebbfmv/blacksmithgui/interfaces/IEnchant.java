@@ -1,5 +1,6 @@
 package me.calebbfmv.blacksmithgui.interfaces;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 /**
@@ -14,5 +15,7 @@ public interface IEnchant {
     public boolean doOnRight();
 
     public String getName();
+
+    public void action(Player player);
 
 }

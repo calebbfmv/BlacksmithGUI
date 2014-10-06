@@ -45,29 +45,22 @@ public abstract class Enchant implements IEnchant {
         return enchants.get(lore);
     }
 
-    public static Enchant getFromItem(ItemStack item){
+    public static Enchant getFromItem(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
-        if(meta == null){
+        if (meta == null) {
             return null;
         }
-        if(!meta.hasLore()){
+        if (!meta.hasLore()) {
             return null;
         }
         String e = "";
-        for(String s : item.getItemMeta().getLore()){
-            if(ChatColor.stripColor(s).contains("Enchant:")){
+        for (String s : item.getItemMeta().getLore()) {
+            if (ChatColor.stripColor(s).contains("Enchant:")) {
                 e = s;
                 break;
             }
         }
         return getFromName(e);
-    }
-
-    public static int getLevel(String lore){
-        lore = ChatColor.stripColor(lore);
-        lore = lore.toLowerCase();
-        lore = lore.replace("Upgrade: ", "");
-        return Integer.parseInt(lore);
     }
 
     public static HashMap<String, Enchant> getEnchants(){

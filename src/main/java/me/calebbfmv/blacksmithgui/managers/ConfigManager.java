@@ -2,6 +2,10 @@ package me.calebbfmv.blacksmithgui.managers;
 
 import me.calebbfmv.blacksmithgui.BlacksmithGUI;
 import me.calebbfmv.blacksmithgui.enchants.*;
+import me.calebbfmv.blacksmithgui.enchants.passives.FallAbility;
+import me.calebbfmv.blacksmithgui.enchants.passives.HealthAbility;
+import me.calebbfmv.blacksmithgui.enchants.passives.SpeedAbility;
+import me.calebbfmv.blacksmithgui.enchants.passives.StrengthAbility;
 import me.calebbfmv.blacksmithgui.interfaces.Upgrade;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -37,6 +41,12 @@ public class ConfigManager {
         new CritEnchant(cost, "Critical", Upgrade.CRITICLE);
         new DamageEnchant(cost, "Damage", Upgrade.DAMAGE);
         new FireballEnchant(cost, "Fireball", Upgrade.FIREBALL);
+        new SlownessEnchant(cost, "Slowness");
+        //==============Passives=================//
+        new FallAbility(cost);
+        new HealthAbility(cost);
+        new SpeedAbility(cost);
+        new StrengthAbility(cost);
     }
 
     public int getCost(int level){

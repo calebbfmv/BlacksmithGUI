@@ -30,6 +30,7 @@ public class PlayerBuffsGUI extends GUI {
                 @Override
                 public void click(Player player) {
                     ability.activate(player);
+                    player.sendMessage(ChatColor.GREEN + "Activated: " + ChatColor.GOLD + ability.getName());
                     player.closeInventory();
                 }
             });

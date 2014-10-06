@@ -1,5 +1,6 @@
 package me.calebbfmv.blacksmithgui;
 
+import me.calebbfmv.blacksmithgui.managers.ConfigManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -8,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BlacksmithGUI extends JavaPlugin {
 
     private static BlacksmithGUI instance;
+    private ConfigManager manager;
 
     public static BlacksmithGUI getInstance(){
         return instance;
@@ -16,6 +18,8 @@ public class BlacksmithGUI extends JavaPlugin {
     @Override
     public void onEnable(){
         instance = this;
+        this.manager = new ConfigManager(this);
+        manager.load();
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         getServer().getPluginManager().registerEvents(new DamageListener(), this);
     }
