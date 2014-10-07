@@ -1,12 +1,11 @@
 package me.calebbfmv.blacksmithgui.managers;
 
 import me.calebbfmv.blacksmithgui.BlacksmithGUI;
-import me.calebbfmv.blacksmithgui.enchants.*;
-import me.calebbfmv.blacksmithgui.enchants.passives.FallAbility;
-import me.calebbfmv.blacksmithgui.enchants.passives.HealthAbility;
-import me.calebbfmv.blacksmithgui.enchants.passives.SpeedAbility;
-import me.calebbfmv.blacksmithgui.enchants.passives.StrengthAbility;
-import me.calebbfmv.blacksmithgui.interfaces.Upgrade;
+import me.calebbfmv.blacksmithgui.ability.abilities.FallAbility;
+import me.calebbfmv.blacksmithgui.ability.abilities.HealthAbility;
+import me.calebbfmv.blacksmithgui.ability.abilities.SpeedAbility;
+import me.calebbfmv.blacksmithgui.ability.abilities.StrengthAbility;
+import me.calebbfmv.blacksmithgui.enchant.enchants.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -35,18 +34,18 @@ public class ConfigManager {
             int i = section.getInt(s + ".cost");
             prices.put(Integer.parseInt(s), i);
         }
-        int cost = getCost(1);
-        new ArrowEnchant(cost, "Arrow", Upgrade.ARROW);
-        new BlindnessEnchant(cost, "Blindness", Upgrade.BLINDNESS);
-        new CritEnchant(cost, "Critical", Upgrade.CRITICLE);
-        new DamageEnchant(cost, "Damage", Upgrade.DAMAGE);
-        new FireballEnchant(cost, "Fireball", Upgrade.FIREBALL);
-        new SlownessEnchant(cost, "Slowness");
+        new ArrowEnchant();
+        new BlindnessEnchant();
+        new CriticalEnchant();
+        new DamageEnchant();
+        new FireballEnchant();
+        new SlownessEnchant();
         //==============Passives=================//
-        new FallAbility(cost);
-        new HealthAbility(cost);
-        new SpeedAbility(cost);
-        new StrengthAbility(cost);
+        new FallAbility();
+        new HealthAbility();
+        new SpeedAbility();
+        new StrengthAbility();
+        //========================================//
     }
 
     public int getCost(int level){

@@ -23,6 +23,8 @@ public class GUI {
 
     public GUI(String name, Button[] buttons) {
         this.name = name;
+        name = getName();
+        name = ChatColor.stripColor(name);
         this.buttons = buttons;
         this.inventories = new HashMap<>();
         guis.put(name.toLowerCase(), this);

@@ -20,24 +20,12 @@ public class Button {
         this.executor = executor;
     }
 
-    public void setExecutor(ClickExecutor executor){
-        this.executor = executor;
-    }
-
-    public ClickExecutor getExecutor() {
-        return executor;
-    }
-
     public void onClick(Player player) {
         executor.click(player);
     }
 
     public ItemStack getItemStack() {
         return item;
-    }
-
-    public void setItem(ItemStack item){
-        this.item = item;
     }
 
     public interface ClickExecutor {

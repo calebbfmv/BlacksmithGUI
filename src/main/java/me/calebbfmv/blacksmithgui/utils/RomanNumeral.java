@@ -1,7 +1,5 @@
 package me.calebbfmv.blacksmithgui.utils;
 
-import java.util.HashMap;
-
 /**
  * Created by Tim [calebbfmv] on 10/1/2014.
  */
@@ -19,7 +17,6 @@ public enum RomanNumeral {
     X(10);
 
     private int value;
-    private static HashMap<Integer, RomanNumeral> numerals = new HashMap<>();
 
     private RomanNumeral(int value){
         this.value = value;
@@ -29,13 +26,30 @@ public enum RomanNumeral {
         return value;
     }
 
-    static {
-        for(RomanNumeral numeral : values()){
-            numerals.put(numeral.getValue(), numeral);
-        }
-    }
-
     public static RomanNumeral get(int i){
-        return numerals.get(i);
+        switch(i){
+            case 1:
+                return I;
+            case 2:
+                return II;
+            case 3:
+                return III;
+            case 4:
+                return IV;
+            case 5:
+                return V;
+            case 6:
+                return VI;
+            case 7:
+                return VII;
+            case 8:
+                return VIII;
+            case 9:
+                return IX;
+            case 10:
+                return X;
+            default:
+                return null;
+        }
     }
 }

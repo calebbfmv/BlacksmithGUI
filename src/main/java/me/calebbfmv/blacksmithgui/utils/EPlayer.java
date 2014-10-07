@@ -1,6 +1,5 @@
 package me.calebbfmv.blacksmithgui.utils;
 
-import me.calebbfmv.blacksmithgui.interfaces.Upgrade;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -15,12 +14,11 @@ public class EPlayer {
     private Player player;
     private UUID uuid;
     private ItemStack chosenItem;
-    private HashMap<Upgrade, Integer>  upgrades;
+    private boolean isPromptedForItem = true;
     private static HashMap<UUID, EPlayer> players = new HashMap<>();
 
     public EPlayer(Player player) {
         this.player = player;
-        this.upgrades = new HashMap<>();
         this.uuid = player.getUniqueId();
         players.put(uuid, this);
     }
@@ -29,19 +27,27 @@ public class EPlayer {
         return players.get(player.getUniqueId());
     }
 
-    public int getLevel(Upgrade upgrade){
-        return upgrades.get(upgrade);
-    }
-
-    public void setLevel(Upgrade upgrade, int i){
-        upgrades.put(upgrade, i);
-    }
-
     public ItemStack getChosenItem(){
         return chosenItem;
     }
 
     public void setChosenItem(ItemStack item){
         this.chosenItem = item;
+    }
+
+    public boolean isPromptedForItem(){
+        return isPromptedForItem;
+    }
+
+    public void setPromptedForItem(boolean val){
+        this.isPromptedForItem = val;
+    }
+
+    public boolean hasFallAbility(){
+        return player.hasMetadata("fall");
+    }
+
+    public boolean hasStrengthAbility(){
+        return player.hasMetadata("str");
     }
 }
