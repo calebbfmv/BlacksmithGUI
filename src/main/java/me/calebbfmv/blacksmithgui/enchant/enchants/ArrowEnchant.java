@@ -30,7 +30,7 @@ public class ArrowEnchant extends CustomEnchant {
             int decreased = 5 * level;
             long duration = 60 - decreased;
             long left = duration -(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()) - TimeUnit.MILLISECONDS.toSeconds(cds.get(player.getUniqueId())));
-            return left == 0;
+            return left <= 0;
         }
         return true;
     }
@@ -51,7 +51,7 @@ public class ArrowEnchant extends CustomEnchant {
         Vector to = player.getEyeLocation().getDirection().multiply(1.46);
         arrow.setVelocity(to);
         arrow.setShooter(player);
-    }
+    } 
 
     @Override
     public void action(EntityDamageByEntityEvent event) {

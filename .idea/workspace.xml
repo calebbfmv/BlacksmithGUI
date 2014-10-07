@@ -10,35 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="625f09a8-3579-4302-af02-0dd1988c0bab" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\DamageListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\PlayerListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\ArrowEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\BlindnessEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\CritEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\DamageEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\FireballEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\SlownessEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\passives\FallAbility.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\passives\HealthAbility.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\passives\SpeedAbility.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\enchants\passives\StrengthAbility.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\gui\guis\CategoryGUI.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\gui\guis\PlayerBuffsGUI.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\gui\guis\UpgradeGUI.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\interfaces\Enchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\interfaces\IEnchant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\interfaces\PassiveAbility.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TDA\Documents\GitHub\BlacksmithGUI\src\main\java\me\calebbfmv\blacksmithgui\interfaces\Upgrade.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/BlacksmithGUI.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/BlacksmithGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/Button.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/Button.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/managers/ConfigManager.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/managers/ConfigManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/EPlayer.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/EPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/EnchantedItem.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/EnchantedItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/GUI.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/GUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/RomanNumeral.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/RomanNumeral.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config.yml" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/FireballEnchant.java" afterPath="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/FireballEnchant.java" />
     </list>
     <ignored path="BlacksmithGUI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,11 +74,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArrowEnchant.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ArrowEnchant.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="1139">
-              <caret line="56" column="0" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.7559275" vertical-offset="325" max-vertical-offset="1139">
+              <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FireballEnchant.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FireballEnchant.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/FireballEnchant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50209206" vertical-offset="252" max-vertical-offset="1139">
-              <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1139">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -277,9 +250,7 @@
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/menus/PlayerBuffGUI.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/BlacksmithGUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/BlindnessEnchant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/FireballEnchant.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/menus/EnchantsGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/menus/UpgradeGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/utils/EnchantedItem.java" />
@@ -289,6 +260,8 @@
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/listeners/AbilityListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/listeners/EnchantListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/ability/abilities/HealthAbility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/FireballEnchant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java" />
       </list>
     </option>
   </component>
@@ -1179,16 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="1139">
-          <caret line="56" column="0" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/gui/menus/UpgradeGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="393" max-vertical-offset="1700">
@@ -1275,8 +1238,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/FireballEnchant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50209206" vertical-offset="252" max-vertical-offset="1139">
-          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1139">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/calebbfmv/blacksmithgui/enchant/enchants/ArrowEnchant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7559275" vertical-offset="325" max-vertical-offset="1139">
+          <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -48,7 +48,7 @@ public class FireballEnchant extends CustomEnchant {
             int decreased = 5 * level;
             long duration = 60 - decreased;
             long left = duration -(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()) - TimeUnit.MILLISECONDS.toSeconds(cds.get(player.getUniqueId())));
-            return left == 0;
+            return left <= 0;
         }
         return true;
     }
