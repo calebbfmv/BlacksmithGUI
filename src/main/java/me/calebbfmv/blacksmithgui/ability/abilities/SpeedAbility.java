@@ -21,7 +21,7 @@ public class SpeedAbility extends Ability {
     public void apply(Player player) {
         int level = getLevel(player);
         for(PotionEffect effect : player.getActivePotionEffects()){
-            if(effect.getType() == PotionEffectType.SPEED){
+            if(effect.getType().equals(PotionEffectType.SPEED)){
                 player.removePotionEffect(effect.getType());
             }
         }

@@ -7,6 +7,7 @@ import me.calebbfmv.blacksmithgui.enchant.CustomEnchant;
 import me.calebbfmv.blacksmithgui.enchant.EnchantmentType;
 import me.calebbfmv.blacksmithgui.gui.Button;
 import me.calebbfmv.blacksmithgui.gui.GUI;
+import me.calebbfmv.blacksmithgui.utils.EnchantedItem;
 import me.calebbfmv.blacksmithgui.utils.RomanNumeral;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
@@ -38,9 +39,9 @@ public class UpgradeGUI extends GUI {
     public static UpgradeGUI create(final AbilityType type){
         Button[] buttons = new Button[10];
         for(int i = 0; i < 10; i++){
-            final int fI = i;
+            final int fI = i + 1;
             RomanNumeral romanNumeral = RomanNumeral.get(i + 1);
-            final int cost = BlacksmithGUI.getInstance().getManager().getCost(fI + 1);
+            final int cost = BlacksmithGUI.getInstance().getManager().getCost(fI);
             ItemStack item = create(Material.EMERALD, ChatColor.GOLD + "Level " + romanNumeral.name());
             List<String> lore = new ArrayList<>();
             lore.add(ChatColor.GREEN.toString() + ChatColor.BOLD + " Cost: " + cost);
@@ -69,9 +70,9 @@ public class UpgradeGUI extends GUI {
     public static UpgradeGUI create(final EnchantmentType type){
         Button[] buttons = new Button[10];
         for(int i = 0; i < 10; i++){
-            final int fI = i;
+            final int fI = i + 1;
             RomanNumeral romanNumeral = RomanNumeral.get(i + 1);
-            final int cost = BlacksmithGUI.getInstance().getManager().getCost(fI + 1);
+            final int cost = BlacksmithGUI.getInstance().getManager().getCost(fI);
             ItemStack item = create(Material.EMERALD, ChatColor.GOLD + "Level " + romanNumeral.name());
             List<String> lore = new ArrayList<>();
             lore.add(ChatColor.GREEN.toString() + ChatColor.BOLD + " Cost: " + cost);
@@ -88,7 +89,26 @@ public class UpgradeGUI extends GUI {
                     }
                     BlacksmithGUI.getInstance().getEcon().withdrawPlayer(player, cost);
                     CustomEnchant ability = CustomEnchant.get(type);
+                    ItemStack item = null;
+                    int slot = -1;
+                    for(int is = 0; is < player.getInventory().getContents().length; is++){
+                        ItemStack itemStack = player.getInventory().getItem(is);
+                        if(itemStack == null ||  itemStack.getType() == Material.AIR){
+                            continue;
+                        }
+                        if(CustomEnchant.getFromItem(itemStack) == null){
+                            continue;
+                        }
+                        item = itemStack;
+                        slot = is;
+                        break;
+                    }
                     ability.setLevel(player, fI);
+                    if(item != null) {
+                        EnchantedItem enchantedItem = new EnchantedItem(item);
+                        enchantedItem.withEnchant(ability, fI);
+                        player.getInventory().setItem(slot, enchantedItem.toItem());
+                    }
                     player.closeInventory();
                     player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + StringUtils.capitalize(type.name()) + ChatColor.GRAY + "] " + ChatColor.RED + "is now level " + fI);
                 }

@@ -1,5 +1,6 @@
 package me.calebbfmv.blacksmithgui.enchant;
 
+import me.calebbfmv.blacksmithgui.utils.EnchantedItem;
 import me.calebbfmv.blacksmithgui.utils.RomanNumeral;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -59,10 +60,42 @@ public abstract class CustomEnchant {
         int lvl = RomanNumeral.valueOf(level).getValue();
         EnchantmentType typ = EnchantmentType.valueOf(en);
         CustomEnchant enchant = enchants.get(typ);
-        if(lvl != enchant.getLevel(player)){
-           enchant.setLevel(player, lvl);
+        EnchantedItem enchantedItem = new EnchantedItem(item);
+        if(lvl > enchant.getLevel(player)){
+            enchant.setLevel(player, lvl);
         }
+        enchantedItem.withEnchant(enchant, enchant.getLevel(player));
+        if(player.getItemInHand().equals(enchantedItem.toItem())){
+            return enchant;
+        }
+        player.setItemInHand(enchantedItem.toItem());
         return enchant;
+    }
+
+    public static CustomEnchant getFromItem(ItemStack item){
+        if(item == null || item.getType() == Material.AIR){
+            return null;
+        }
+        if(!item.hasItemMeta()){
+            return null;
+        }
+        ItemMeta meta = item.getItemMeta();
+        if(!meta.hasLore()){
+            return null;
+        }
+        String en = "";
+        for(String s : meta.getLore()){
+            String check = ChatColor.stripColor(s);
+            if(!check.contains("Enchantment: ")){
+                continue;
+            }
+            String past = check.replace("Enchantment: ", "");
+            String[] str = past.split(" ");
+            en = str[0];
+            break;
+        }
+        EnchantmentType typ = EnchantmentType.valueOf(en);
+        return enchants.get(typ);
     }
 
     public static CustomEnchant[] getEnchants(){

@@ -44,6 +44,7 @@ public class InventoryListener implements Listener {
                         player.getInventory().setItem(event.getSlot(), null);
                         ePlayer.setChosenItem(clicked);
                         ePlayer.setPromptedForItem(false);
+                        event.getInventory().setItem(16, clicked);
                     }
                 }
                 return;

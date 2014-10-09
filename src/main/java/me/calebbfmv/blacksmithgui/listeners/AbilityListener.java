@@ -1,7 +1,10 @@
 package me.calebbfmv.blacksmithgui.listeners;
 
 import me.calebbfmv.blacksmithgui.BlacksmithGUI;
+import me.calebbfmv.blacksmithgui.ability.Ability;
+import me.calebbfmv.blacksmithgui.ability.AbilityType;
 import me.calebbfmv.blacksmithgui.enchant.CustomEnchant;
+import me.calebbfmv.blacksmithgui.enchant.EnchantmentType;
 import me.calebbfmv.blacksmithgui.utils.EPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -61,5 +64,14 @@ public class AbilityListener implements Listener {
         Player player = event.getEntity();
         player.removeMetadata("fall", BlacksmithGUI.getInstance());
         player.removeMetadata("str", BlacksmithGUI.getInstance());
+        player.getActivePotionEffects().clear();
+        player.setMaxHealth(20.0D);
+        for(AbilityType abilityType :  AbilityType.values()){
+            Ability.get(abilityType).setLevel(player, 0);
+        }
+        for(EnchantmentType enchantmentType : EnchantmentType.values()){
+            CustomEnchant.get(enchantmentType).setLevel(player, 0);
+        }
+
     }
 }

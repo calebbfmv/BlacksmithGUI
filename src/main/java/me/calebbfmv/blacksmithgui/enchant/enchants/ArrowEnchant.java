@@ -42,7 +42,7 @@ public class ArrowEnchant extends CustomEnchant {
             int decreased = 5 * level;
             long duration = 60 - decreased;
             long left = duration -(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()) - TimeUnit.MILLISECONDS.toSeconds(cds.get(player.getUniqueId())));
-            player.sendMessage(ChatColor.RED + "Please wait " + left + " before using this again!" );
+            player.sendMessage(ChatColor.RED + "Please wait " + left + " second" + (left == 1 ? "" : "s" )+ " before using this again!" );
             return;
         }
         EnchantListener.tries.remove(player.getUniqueId());
@@ -51,7 +51,7 @@ public class ArrowEnchant extends CustomEnchant {
         Vector to = player.getEyeLocation().getDirection().multiply(1.46);
         arrow.setVelocity(to);
         arrow.setShooter(player);
-    } 
+    }
 
     @Override
     public void action(EntityDamageByEntityEvent event) {

@@ -25,6 +25,18 @@ public class ConfigManager {
     private HashMap<Integer, Integer> prices = new HashMap<>();
 
     public void load(){
+        new ArrowEnchant();
+        new BlindnessEnchant();
+        new CriticalEnchant();
+        new DamageEnchant();
+        new FireballEnchant();
+        new SlownessEnchant();
+        //==============Passives=================//
+        new FallAbility();
+        new HealthAbility();
+        new SpeedAbility();
+        new StrengthAbility();
+        //========================================//
         FileConfiguration config = plugin.getConfig();
         ConfigurationSection section = config.getConfigurationSection("prices");
         if(section == null){

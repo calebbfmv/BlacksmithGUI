@@ -30,7 +30,7 @@ public class SlownessEnchant extends CustomEnchant {
     public void action(Player player) {
         if(!can(player)){
             long left = 10 - (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()) - TimeUnit.MILLISECONDS.toSeconds(cds.get(player.getUniqueId())));
-            player.sendMessage(ChatColor.RED + "Please wait " + left + " before using this again!" );
+            player.sendMessage(ChatColor.RED + "Please wait " + left + " second" + (left == 1 ? "" : "s" )+ " before using this again!" );
             return;
         }
         EnchantListener.tries.remove(player.getUniqueId());

@@ -21,14 +21,14 @@ public class HealthAbility extends Ability {
     public void apply(Player player) {
         int level = getLevel(player);
         for(PotionEffect effects : player.getActivePotionEffects()){
-            if(effects.getType() == PotionEffectType.HEALTH_BOOST){
+            if(effects.getType().equals(PotionEffectType.HEALTH_BOOST)){
                 player.removePotionEffect(effects.getType());
             }
         }
-        player.setHealth(20.0D);
-        player.setMaxHealth(player.getMaxHealth());
+        player.setMaxHealth(20.0D);
         PotionEffect effect = new PotionEffect(PotionEffectType.HEALTH_BOOST, 10000000, level * 2);
         player.addPotionEffect(effect);
+        player.setHealth(player.getMaxHealth());
         player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + StringUtils.capitalize(type.name()) + ChatColor.GRAY + "] " + ChatColor.RED + "is now activated.");
     }
 }
