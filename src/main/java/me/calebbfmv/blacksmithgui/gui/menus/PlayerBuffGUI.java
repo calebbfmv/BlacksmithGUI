@@ -56,7 +56,7 @@ public class PlayerBuffGUI extends GUI {
                 case HEALTH:
                     meta.setLore(getHealthLore());
                     break;
-                case STREMGTH:
+                case STRENGTH:
                     meta.setLore(getStrengthLore());
                     break;
             }

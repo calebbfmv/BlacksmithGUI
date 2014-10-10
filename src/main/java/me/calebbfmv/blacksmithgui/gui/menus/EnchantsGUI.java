@@ -151,7 +151,7 @@ public class EnchantsGUI extends GUI {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GRAY + "-----------------------------------");
         lore.add(ChatColor.GREEN.toString() + ChatColor.BOLD + "Description: ");
-        lore.add(ChatColor.DARK_AQUA + "- Increases your damage done by5%");
+        lore.add(ChatColor.DARK_AQUA + "- Increases your damage done by 5%");
         lore.add(ChatColor.DARK_AQUA + "  +5% every level");
         lore.add(ChatColor.GRAY + "-----------------------------------");
         return lore;

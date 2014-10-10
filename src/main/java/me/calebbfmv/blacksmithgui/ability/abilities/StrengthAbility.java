@@ -14,7 +14,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 public class StrengthAbility extends Ability {
 
     public StrengthAbility() {
-        super(AbilityType.STREMGTH);
+        super(AbilityType.STRENGTH);
     }
 
     @Override

@@ -8,7 +8,7 @@ public enum AbilityType {
     FALL,
     HEALTH,
     SPEED,
-    STREMGTH;
+    STRENGTH;
 
     public boolean isDonor(){
         return this == SPEED;
