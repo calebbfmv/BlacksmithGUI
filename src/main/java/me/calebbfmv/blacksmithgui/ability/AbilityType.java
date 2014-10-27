@@ -14,4 +14,8 @@ public enum AbilityType {
         return this == SPEED;
     }
 
+    public String capitalized(){
+        return this.name().toLowerCase().substring(0, 1).toUpperCase() + this.name().toLowerCase().substring(1);
+    }
+
 }
