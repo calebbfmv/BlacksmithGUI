@@ -59,7 +59,7 @@ public class EnchantsGUI extends GUI {
                 case DAMAGE:
                     meta.setLore(getDamageLore());
                     break;
-                case FIREBAL:
+                case FIREBALL:
                     List<String> fLore = getFireballLore();
                     fLore.add(ChatColor.RED + ChatColor.BOLD.toString() + "DONOR ONLY.");
                     meta.setLore(fLore);
@@ -105,7 +105,7 @@ public class EnchantsGUI extends GUI {
                     }
                     enchantedItem.give(player);
                     player.closeInventory();
-                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + StringUtils.capitalize(type.name()) + ChatColor.GRAY + "] " + ChatColor.RED + "is now equiped!");
+                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + type.capitalized() + ChatColor.GRAY + "] " + ChatColor.RED + "is now equipped!");
                     EPlayer.get(player).setChosenItem(null);
                     EPlayer.get(player).setPromptedForItem(true);
                 }

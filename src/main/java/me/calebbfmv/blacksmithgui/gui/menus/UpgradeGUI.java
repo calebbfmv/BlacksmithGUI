@@ -9,7 +9,6 @@ import me.calebbfmv.blacksmithgui.gui.Button;
 import me.calebbfmv.blacksmithgui.gui.GUI;
 import me.calebbfmv.blacksmithgui.utils.EnchantedItem;
 import me.calebbfmv.blacksmithgui.utils.RomanNumeral;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -59,8 +58,9 @@ public class UpgradeGUI extends GUI {
                     Ability ability = Ability.get(type);
                     ability.setLevel(player, fI);
                     ability.apply(player);
+                    BlacksmithGUI.getInstance().getEcon().withdrawPlayer(player, cost);
                     player.closeInventory();
-                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + StringUtils.capitalize(type.name()) + ChatColor.GRAY + "] " + ChatColor.RED + "is now level " + fI);
+                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + type.capitalized() + ChatColor.GRAY + "] " + ChatColor.RED + "is now level " + fI);
                 }
             });
         }
@@ -110,7 +110,7 @@ public class UpgradeGUI extends GUI {
                         player.getInventory().setItem(slot, enchantedItem.toItem());
                     }
                     player.closeInventory();
-                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + StringUtils.capitalize(type.name()) + ChatColor.GRAY + "] " + ChatColor.RED + "is now level " + fI);
+                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + type.capitalized() + ChatColor.GRAY + "] " + ChatColor.RED + "is now level " + fI);
                 }
             });
         }

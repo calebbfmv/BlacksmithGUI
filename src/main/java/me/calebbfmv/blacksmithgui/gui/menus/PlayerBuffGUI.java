@@ -70,17 +70,18 @@ public class PlayerBuffGUI extends GUI {
                         player.sendMessage(ChatColor.RED + "You cannot purchase this!");
                         return;
                     }
-                    Ability ability = Ability.get(type);
-                    ability.apply(player);
-                    if(ability.getLevel(player) <= 0){ // player died before
-                        ability.setLevel(player, 1);
-                    }
-                    player.closeInventory();
-                    BlacksmithGUI.getInstance().getEcon().withdrawPlayer(player, cost);
                     if(type.isDonor() && !player.hasPermission("bs.donor")){
                         player.sendMessage(ChatColor.RED + ChatColor.BOLD.toString() + "You cannot purchase this item! DONORS ONLY");
                         return;
                     }
+                    Ability ability = Ability.get(type);
+                    if(ability.getLevel(player) <= 0){ // player died before
+                        ability.setLevel(player, 1);
+                    }
+                    ability.apply(player);
+                    player.closeInventory();
+                    BlacksmithGUI.getInstance().getEcon().withdrawPlayer(player, cost);
+                    player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + type.capitalized() + ChatColor.GRAY + "] " + ChatColor.RED + "is now activated.");
                 }
             });
         }
