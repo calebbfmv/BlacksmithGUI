@@ -30,7 +30,7 @@ public class EnchantedItem {
     }
 
     public EnchantedItem withEnchant(CustomEnchant enchant, int level){
-        lore.add(0, ChatColor.RED + "Enchantment: " + enchant.getType().name() + " " + RomanNumeral.get(level).name());
+        lore.add(0, ChatColor.RED + "Enchantment: " + enchant.getType().capitalized() + " " + RomanNumeral.get(level).name());
         return this;
     }
 
