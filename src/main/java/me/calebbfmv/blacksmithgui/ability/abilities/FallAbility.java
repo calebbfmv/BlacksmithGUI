@@ -3,7 +3,6 @@ package me.calebbfmv.blacksmithgui.ability.abilities;
 import me.calebbfmv.blacksmithgui.BlacksmithGUI;
 import me.calebbfmv.blacksmithgui.ability.Ability;
 import me.calebbfmv.blacksmithgui.ability.AbilityType;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -22,6 +21,5 @@ public class FallAbility extends Ability {
         int level = getLevel(player);
         int percentage = 10 * level;
         player.setMetadata("fall", new FixedMetadataValue(BlacksmithGUI.getInstance(), percentage));
-        player.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + StringUtils.capitalize(type.name()) + ChatColor.GRAY + "] " + ChatColor.RED + "is now activated.");
     }
 }
