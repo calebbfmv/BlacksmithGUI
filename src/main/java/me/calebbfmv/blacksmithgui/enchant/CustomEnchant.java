@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -33,69 +35,93 @@ public abstract class CustomEnchant {
     }
 
     public static CustomEnchant getFromItem(Player player){
-        ItemStack item = player.getItemInHand();
-        if(item == null || item.getType() == Material.AIR){
-            return null;
-        }
-        if(!item.hasItemMeta()){
-            return null;
-        }
-        ItemMeta meta = item.getItemMeta();
-        if(!meta.hasLore()){
-            return null;
-        }
-        String en = "";
-        String level = "";
-        for(String s : meta.getLore()){
-            String check = ChatColor.stripColor(s);
-            if(!check.contains("Enchantment: ")){
-                continue;
+
+        try {
+            ItemStack item = player.getItemInHand();
+            if(item == null || item.getType() == Material.AIR){
+                return null;
             }
-            String past = check.replace("Enchantment: ", "");
-            String[] str = past.split(" ");
-            en = str[0];
-            level = str[1];
-            break;
-        }
-        int lvl = RomanNumeral.valueOf(level).getValue();
-        EnchantmentType typ = EnchantmentType.valueOf(en);
-        CustomEnchant enchant = enchants.get(typ);
-        EnchantedItem enchantedItem = new EnchantedItem(item);
-        if(lvl > enchant.getLevel(player)){
-            enchant.setLevel(player, lvl);
-        }
-        enchantedItem.withEnchant(enchant, enchant.getLevel(player));
-        if(player.getItemInHand().equals(enchantedItem.toItem())){
+            if(!item.hasItemMeta()){
+                return null;
+            }
+            ItemMeta meta = item.getItemMeta();
+            if(!meta.hasLore()){
+                return null;
+            }
+            String en = "";
+            String level = "";
+            for(String s : meta.getLore()){
+                String check = ChatColor.stripColor(s);
+                if(!check.contains("Enchantment: ")){
+                    continue;
+                }
+                String past = check.replace("Enchantment: ", "");
+                String[] str = past.split(" ");
+                en = str[0];
+                level = str[1];
+                break;
+            }
+            if(RomanNumeral.valueOf(level) == null){
+                return null;
+            }
+            int lvl = RomanNumeral.valueOf(level).getValue();
+            if(en.equals("FIREBAL")){
+                en = "FIREBALL";
+            }
+            EnchantmentType typ = EnchantmentType.get(en);
+            if(typ == null){
+                typ = EnchantmentType.valueOf(en);
+            }
+            CustomEnchant enchant = enchants.get(typ);
+            EnchantedItem enchantedItem = new EnchantedItem(item);
+            if(lvl > enchant.getLevel(player)){
+                enchant.setLevel(player, lvl);
+            }
+            enchantedItem.withEnchant(enchant, enchant.getLevel(player));
+            if(player.getItemInHand().equals(enchantedItem.toItem())){
+                return enchant;
+            }
+            player.setItemInHand(enchantedItem.toItem());
             return enchant;
+        } catch (IllegalArgumentException e){
+            return null;
         }
-        player.setItemInHand(enchantedItem.toItem());
-        return enchant;
     }
 
-    public static CustomEnchant getFromItem(ItemStack item){
-        if(item == null || item.getType() == Material.AIR){
-            return null;
-        }
-        if(!item.hasItemMeta()){
-            return null;
-        }
-        ItemMeta meta = item.getItemMeta();
-        if(!meta.hasLore()){
-            return null;
-        }
-        String en = "";
-        for(String s : meta.getLore()){
-            String check = ChatColor.stripColor(s);
-            if(!check.contains("Enchantment: ")){
-                continue;
+    public static CustomEnchant getFromItem(ItemStack item) {
+        try {
+            if (item == null || item.getType() == Material.AIR) {
+                return null;
             }
-            String past = check.replace("Enchantment: ", "");
-            String[] str = past.split(" ");
-            en = str[0];
-            break;
+            if (!item.hasItemMeta()) {
+                return null;
+            }
+            ItemMeta meta = item.getItemMeta();
+            if (!meta.hasLore()) {
+                return null;
+            }
+            String en = "";
+            for (String s : meta.getLore()) {
+                String check = ChatColor.stripColor(s);
+                if (!check.contains("Enchantment: ")) {
+                    continue;
+                }
+                String past = check.replace("Enchantment: ", "");
+                String[] str = past.split(" ");
+                en = str[0];
+                break;
+            }
+            if (en.equals("FIREBAL")) {
+                en = "FIREBALL";
+            }
+            EnchantmentType typ = EnchantmentType.get(en);
+            if (typ == null) {
+                typ = EnchantmentType.valueOf(en);
+            }
+            return enchants.get(typ);
+        } catch (IllegalArgumentException e){
+            return null;
         }
-        EnchantmentType typ = EnchantmentType.valueOf(en);
-        return enchants.get(typ);
     }
 
     public static CustomEnchant[] getEnchants(){
