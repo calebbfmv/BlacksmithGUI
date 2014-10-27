@@ -10,6 +10,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
@@ -54,5 +55,18 @@ public class InventoryListener implements Listener {
         event.setCancelled(true);
         event.setResult(Event.Result.DENY);
         button.onClick(player);
+    }
+
+    @EventHandler
+    public void onClose(InventoryCloseEvent event){
+        Player player = (Player) event.getPlayer();
+        ItemStack item = EPlayer.get(player).getChosenItem();
+        if(item == null){
+            return;
+        }
+        if(player.getOpenInventory() != null){
+            return;
+        }
+        player.getInventory().addItem(item);
     }
 }
