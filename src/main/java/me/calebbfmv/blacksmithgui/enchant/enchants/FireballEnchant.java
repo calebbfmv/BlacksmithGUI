@@ -21,7 +21,7 @@ public class FireballEnchant extends CustomEnchant {
     private HashMap<UUID, Long> cds = new HashMap<>();
 
     public FireballEnchant() {
-        super(EnchantmentType.FIREBAL);
+        super(EnchantmentType.FIREBALL);
     }
 
     @Override
